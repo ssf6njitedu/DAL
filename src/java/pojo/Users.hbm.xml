@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 29, 2011 10:22:08 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="entitydb" name="pojo.User" table="users">
+    <id name="entityId" type="string">
+      <column length="40" name="EntityID"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="pojo.Person" fetch="select" insert="false" name="people" update="false">
+      <column length="40" name="EntityID" not-null="true" unique="true"/>
+    </many-to-one>
+    <property name="userEmail" type="string">
+      <column length="100" name="UserEmail"/>
+    </property>
+    <property name="userSalt" type="string">
+      <column length="20" name="UserSalt"/>
+    </property>
+    <property name="userPasswordHash" type="string">
+      <column length="64" name="UserPasswordHash"/>
+    </property>
+    <property name="userOauthToken" type="string">
+      <column length="20" name="UserOauthToken"/>
+    </property>
+  </class>
+</hibernate-mapping>
